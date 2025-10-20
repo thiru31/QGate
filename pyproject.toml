@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=65.5.0", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "QGate"
+version = "0.1.0"
+description = "A lightweight command-line tool that simplifies connecting to QDC systems"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Thirumalai Nagalingam", email = "thirumalaicse2020@gmail.com"}
+]
+[bdist_wheel]
+universal = 0
+keywords = ["cli", "qdc", "connect", "windows"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: GPLv3 License",
+    "Operating System :: Microsoft :: Windows",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Topic :: Utilities"
+]
+dependencies = []
+
+[project.scripts]
+qgate = "qgate.cli:main"
+
+[tool.setuptools]
+packages = ["qgate"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+qgate = ["py.typed"]
