@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 import sys
+import textwrap
 from . import core
 
 def build_parser():
-    p = argparse.ArgumentParser(prog="qgate", description="qgate — small cli tool to create SSH tunnels and open RDP via Windows Terminal.")
+    p = argparse.ArgumentParser(prog="QGate", description="QGate - An easy gateway to QDC devices")
     sub = p.add_subparsers(dest="cmd")
 
     c = sub.add_parser("connect", help="Create SSH tunnels and open RDP to the provided session target")
@@ -23,6 +24,14 @@ def build_parser():
     return p
 
 def main(argv=None):
+    description = textwrap.dedent("""
+    ==========================================================
+              QGate - An easy gateway to QDC devices
+    ==========================================================
+    Author: Thirumalai Nagalingam
+    Version: 0.1.0  License: GPLv3
+    ==========================================================
+    """)
     argv = argv or sys.argv[1:]
     parser = build_parser()
     args = parser.parse_args(argv)
